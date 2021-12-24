@@ -1,77 +1,67 @@
-import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
+import { LockOutlined } from '@mui/icons-material';
 import { useFormik } from 'formik';
 import {
-  Button, IconButton, InputAdornment, InputLabel, TextField, Typography, CircularProgress,
+  Button, CircularProgress, InputLabel, TextField, Typography,
 } from 'helpmycase-storybook/dist/components/External';
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
 import * as Yup from 'yup';
 import FormTitle from '../../../components/molecules/auth/FormTitle';
 import useAuth from '../useAuth';
 
 const initialValues = {
-  username: '',
-  password: '',
+  email: '',
+  phoneNumber: '',
 };
 
 const formValidationSchema = Yup.object().shape({
-  username: Yup.string()
+  email: Yup.string()
     .required('Email is a required field'),
-  password: Yup.string().required('Password is a required field'),
+  phoneNumber: Yup.string().required('Phone number is a required field'),
 });
 
 const Login: React.FC = () => {
-  const [showPassword, setShowPassword] = useState<boolean>();
   const { loading, signIn } = useAuth();
   const formik = useFormik({
     initialValues,
     initialErrors: initialValues,
-    onSubmit: (values) => signIn(values.username, values.password),
+    onSubmit: (values) => signIn(values.email),
     validationSchema: formValidationSchema,
   });
   return (
     <form onSubmit={formik.handleSubmit}>
       <FormTitle
         title="Log in"
-        subtitle={`To login to your account,
-                    please provide your email and your password.`}
+        subtitle="To view your enquiries please provide our email and phone number"
       />
       <div className="fullWidth marginTop">
         <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Email</InputLabel>
         <TextField
           id="input-with-icon-adornment"
-          name="username"
+          name="email"
           fullWidth
           color="primary"
-          helperText={formik.touched.username && formik.errors.username}
-          error={Boolean(formik.touched.username && formik.errors.username)}
+          helperText={formik.touched.email && formik.errors.email}
+          error={Boolean(formik.touched.email && formik.errors.email)}
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
         />
       </div>
       <div className="fullWidth marginTop">
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Password</InputLabel>
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Phone Number</InputLabel>
         <div style={{ position: 'relative' }}>
           <TextField
             id="input-with-icon-adornment"
-            name="password"
+            name="phoneNumber"
             fullWidth
             color="primary"
-            type={showPassword ? 'text' : 'password'}
-            helperText={formik.touched.password && formik.errors.password}
-            error={Boolean(formik.touched.password && formik.errors.password)}
+            type="text"
+            helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
+            error={Boolean(formik.touched.phoneNumber && formik.errors.phoneNumber)}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
+              startAdornment: (
+                <Typography className="marginRightSmall grey">+44</Typography>
               ),
             }}
           />
@@ -87,13 +77,6 @@ const Login: React.FC = () => {
         >
           Login
         </Button>
-      </div>
-      <div className="marginTopMedium fullWidth textAlignLeft">
-        <Typography variant="subtitle1">
-          Forgotten your password?
-          {' '}
-          <NavLink className="underline red" to="/auth/reset-password">Reset your password</NavLink>
-        </Typography>
       </div>
     </form>
   );

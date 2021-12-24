@@ -27,8 +27,8 @@ const Client: React.FC = () => {
         <ClientAuth />
       </Modal>
       <ClientAppBar />
-      <Route path="/client/requests" component={Requests} />
-      <Route path="/client/requests/:id" component={Requests} />
+      <Route path="/requests" component={Requests} />
+      <Route path="/requests/:id" component={Requests} />
     </ClientAuthContext.Provider>
   );
 };

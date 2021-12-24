@@ -6,7 +6,6 @@ import './App.css';
 import AuthContext from './context/AuthContext';
 import Auth from './pages/Auth';
 import Client from './pages/Client';
-import Dashboard from './pages/Dashboard';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<CognitoUser>();
@@ -17,9 +16,6 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/auth">
             <Auth />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
           </Route>
           <Route path="/client">
             <Client />

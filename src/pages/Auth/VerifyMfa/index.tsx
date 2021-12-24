@@ -39,23 +39,18 @@ const VerifyMfa: React.FC = () => {
   const styles = useStyles();
   const location = useLocation<IRouteState>();
   const {
-    loading, resendConfirmationCode, resendSignUpEmail, confirmSignUp, verifyMfa,
+    loading, verifyMfa,
   } = useAuth();
   const formik = useFormik({
     initialValues,
-    onSubmit: async (values) => {
-      if (location.state?.verify && location.state?.username && location.state?.password) {
-        return confirmSignUp(values.code, location.state.username, location.state.password);
-      }
-      return verifyMfa(values.code);
-    },
+    onSubmit: async (values) => verifyMfa(values.code),
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <FormTitle
         title={
-         location.state?.verify ? 'Verify Email' : 'Authenticate Account'
+          location.state?.verify ? 'Verify Email' : 'Authenticate Account'
         }
         subtitle={
           location.state?.verify ? 'Please verify your email address address using the code sent.'
@@ -90,7 +85,7 @@ const VerifyMfa: React.FC = () => {
             type="button"
             className="underline red borderNone font"
             style={{ backgroundColor: 'transparent' }}
-            onClick={location.state?.verify ? resendSignUpEmail : resendConfirmationCode}
+          // onClick={location.state?.verify ? resendSignUpEmail : resendConfirmationCode}
           >
             Resend a new code
           </button>

@@ -10,12 +10,6 @@ import Logo from '../../components/atoms/Logo';
 import history from '../../utils/routes/history';
 import Login from './Login';
 import LoginHelperText from './Login/HelperText';
-import Register from './Register';
-import RegisterHelperText from './Register/HelperText';
-import ResetPasswordConfirmation from './ResetPassword/Confirm';
-import ConfirmPasswordResetHelperText from './ResetPassword/Confirm/HelperText';
-import ResetPasswordRequest from './ResetPassword/Request';
-import RequestPasswordResetHelperText from './ResetPassword/Request/HelperText';
 import useAuth from './useAuth';
 import VerifyMfa from './VerifyMfa';
 import VerifyHelperText from './VerifyMfa/HelperText';
@@ -69,7 +63,7 @@ const Auth: React.FC = () => {
 
   const shouldRedirectToDashboard = async () => {
     const response = await isLoggedIn();
-    if (response) history.push('/dashboard');
+    if (response) history.push('/client');
   };
 
   useEffect(() => {
@@ -86,20 +80,8 @@ const Auth: React.FC = () => {
               <Route exact path={['/auth', '/auth/login']}>
                 <LoginHelperText />
               </Route>
-              <Route exact path="/auth/register">
-                <RegisterHelperText />
-              </Route>
               <Route exact path="/auth/verify">
                 <VerifyHelperText />
-              </Route>
-              <Route exact path="/auth/verify-email">
-                <VerifyHelperText />
-              </Route>
-              <Route exact path={['/auth/reset-password', '/auth/reset-password/request']}>
-                <RequestPasswordResetHelperText />
-              </Route>
-              <Route exact path="/auth/reset-password/confirm">
-                <ConfirmPasswordResetHelperText />
               </Route>
             </Switch>
           </div>
@@ -109,19 +91,7 @@ const Auth: React.FC = () => {
             <Route exact path={['/auth', '/auth/login']}>
               <Login />
             </Route>
-            <Route exact path="/auth/register">
-              <Register />
-            </Route>
-            <Route exact path={['/auth/reset-password', '/auth/reset-password/request']}>
-              <ResetPasswordRequest />
-            </Route>
-            <Route exact path="/auth/reset-password/confirm">
-              <ResetPasswordConfirmation />
-            </Route>
             <Route exact path="/auth/verify">
-              <VerifyMfa key={history.location.pathname} />
-            </Route>
-            <Route exact path="/auth/verify-email">
               <VerifyMfa key={history.location.pathname} />
             </Route>
           </Switch>
