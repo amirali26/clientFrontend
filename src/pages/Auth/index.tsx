@@ -59,12 +59,7 @@ const useStyles = Styles.makeStyles({
 const Auth: React.FC = () => {
   const styles = useStyles();
 
-  const { isLoggedIn } = useAuth();
-
-  const shouldRedirectToDashboard = async () => {
-    const response = await isLoggedIn();
-    if (response) history.push('/client');
-  };
+  const { shouldRedirectToDashboard } = useAuth();
 
   useEffect(() => {
     shouldRedirectToDashboard();

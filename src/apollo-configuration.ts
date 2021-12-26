@@ -1,7 +1,6 @@
 import { createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Auth } from 'aws-amplify';
-import { userVar } from './pages/Dashboard';
 import environmentVars from './utils/env.variables';
 
 const authLink = setContext(async (_, { headers }) => {
@@ -12,7 +11,6 @@ const authLink = setContext(async (_, { headers }) => {
     headers: {
       ...headers,
       authorization: `Bearer ${token.getJwtToken()}`,
-      accountid: userVar().selectedAccount?.id,
     },
   };
 });

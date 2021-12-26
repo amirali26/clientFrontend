@@ -11,7 +11,7 @@ export const Navigation: React.FC = () => {
 
   return (
     <>
-      <NavigationAppBar handleOpen={handleOpen} />
+      <NavigationAppBar />
       <NavigationSideBar open={open} handleOpen={handleOpen} />
     </>
   );

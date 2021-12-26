@@ -46,8 +46,8 @@ const useAuth = () => {
       if (!(e === 'No current user')) {
         sb.trigger(e.message || 'There was an issue hi');
       }
+      return false;
     }
-    return false;
   };
 
   const handleLogout = async () => {
@@ -59,12 +59,22 @@ const useAuth = () => {
     }
   };
 
+  const shouldRedirectToDashboard = async () => {
+    const response = await isLoggedIn();
+    if (response) {
+      history.push('/client');
+    } else {
+      await handleLogout();
+    }
+  };
+
   return {
     loading,
     signIn,
     verifyMfa,
     isLoggedIn,
     handleLogout,
+    shouldRedirectToDashboard,
   };
 };
 

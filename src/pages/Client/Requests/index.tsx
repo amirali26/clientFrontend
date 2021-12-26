@@ -3,9 +3,6 @@ import React from 'react';
 import { Summary } from '../../../components/templates/Client';
 
 const BreadCrumbs = ([
-  <Link key="/client" underline="hover" color="inherit" href="/client">
-    Home
-  </Link>,
   <Typography key="Requests" color="text.primary">Requests</Typography>,
 ]);
 

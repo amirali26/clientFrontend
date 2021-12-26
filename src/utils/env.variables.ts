@@ -11,7 +11,7 @@ interface EnvironmentConfig {
 
 // Default is development
 const environmentVars: EnvironmentConfig = {
-  REACT_APP_API_URL: window.location.href.includes('client.helpmycase.co.uk') ? 'https://client-api.helpmycase.co.uk' : 'http://localhost:8081',
+  REACT_APP_API_URL: window.location.href.includes('client.helpmycase.co.uk') ? 'https://client-api.helpmycase.co.uk' : 'http://localhost:5001',
   REACT_APP_COGNITO: {
     poolId: 'eu-west-1_mYIGCWPvH',
     clientId: '5a5sfrkr47tad84pkt3feucrd2',

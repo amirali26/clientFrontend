@@ -20,8 +20,8 @@ export const Summary: React.FC<ISummaryProps> = ({
       }}
     >
       <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Client
+        <Link key="/client" underline="hover" color="inherit" href="/client">
+          Home
         </Link>
         {breadcrumbs}
       </Breadcrumbs>
