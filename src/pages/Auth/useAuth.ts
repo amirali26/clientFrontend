@@ -43,9 +43,6 @@ const useAuth = () => {
     try {
       return await Auth.currentSession();
     } catch (e: any) {
-      if (!(e === 'No current user')) {
-        sb.trigger(e.message || 'There was an issue hi');
-      }
       return false;
     }
   };
