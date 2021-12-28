@@ -4,7 +4,8 @@ import { Topic } from '../../../models/topic';
 import convertToDateTime from '../../../utils/datetime';
 
 interface IProps {
-  handleClick: () => void;
+  handleViewResponsesClick: () => void;
+  handleViewMoreInfoClick: () => void;
   description: string,
   topic: Topic,
   createdDate: string,
@@ -16,7 +17,8 @@ const CardRow: React.FC<IProps> = ({
   topic,
   createdDate,
   enquiriesCount,
-  handleClick,
+  handleViewResponsesClick,
+  handleViewMoreInfoClick,
 }) => (
   <div style={{
     width: '425px',
@@ -56,14 +58,24 @@ const CardRow: React.FC<IProps> = ({
         {' '}
         responses
       </Typography>
-      <Button
-        onClick={handleClick}
-        fullWidth
-        variant="contained"
-        style={{ width: '155px' }}
-      >
-        View Request
-      </Button>
+      <div style={{ width: '155px' }}>
+        <Button
+          onClick={handleViewResponsesClick}
+          fullWidth
+          variant="contained"
+          style={{ width: '155px', marginBottom: '16px' }}
+        >
+          View Responses
+        </Button>
+        <Button
+          onClick={handleViewMoreInfoClick}
+          fullWidth
+          variant="outlined"
+          style={{ width: '155px' }}
+        >
+          View More Info
+        </Button>
+      </div>
     </div>
   </div>
 );

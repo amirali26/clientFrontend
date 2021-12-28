@@ -1,18 +1,23 @@
 import { useQuery } from '@apollo/client';
 import { Button, Typography } from 'helpmycase-storybook/dist/components/External';
-import React from 'react';
+import React, { useState } from 'react';
 import BackdropLoader from '../../../components/molecules/backdropLoader';
 import CardRow from '../../../components/molecules/CardRow';
+import Drawer from '../../../components/molecules/Drawer';
+import { Request as RequestDrawer } from '../../../components/organisms/Requests';
 import { Summary } from '../../../components/templates/Client';
 import { Request } from '../../../models/request';
-import GET_REQUESTS from '../../../queries/requests';
+import { GET_REQUESTS } from '../../../queries/requests';
+import history from '../../../utils/routes/history';
 
 const BreadCrumbs = ([
   <Typography key="Requests" color="text.primary">Requests</Typography>,
 ]);
 
 const Requests: React.FC = () => {
+  const [request, setRequest] = useState<Request>();
   const { data, loading, error } = useQuery<{ requests: Request[] }>(GET_REQUESTS);
+
   return (
     <>
       <div>
@@ -43,12 +48,25 @@ const Requests: React.FC = () => {
               key={r.id}
               {...r}
               enquiriesCount={r.enquiries.length}
-              handleClick={() => console.log('2')}
+              handleViewMoreInfoClick={() => setRequest(r)}
+              handleViewResponsesClick={() => history.push(`/client/requests/${r.id}`)}
             />
           ))
         }
       </div>
       <BackdropLoader open={loading} />
+      <Drawer open={Boolean(request)} onBackdropClick={() => setRequest(undefined)}>
+        {
+          request
+          && (
+            <RequestDrawer
+              {...request}
+              topic={request?.topic.name}
+              handleViewResponsesClick={() => history.push(`/client/requests/${request?.id}`)}
+            />
+          )
+        }
+      </Drawer>
     </>
   );
 };

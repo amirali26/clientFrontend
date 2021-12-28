@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import useHelpmycaseSnackbar from '../../../../hooks/useHelpmycaseSnackbar';
 import EnquiryInput, { Enquiry as EnquiryType } from '../../../../models/enquiry';
 import { ADD_ENQUIRY } from '../../../../mutations/enquiry';
-import GET_REQUESTS from '../../../../queries/requests';
+import { GET_REQUESTS } from '../../../../queries/requests';
 import BackdropLoader from '../../../molecules/backdropLoader';
 import Title from '../../../molecules/Title';
 
