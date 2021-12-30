@@ -26,7 +26,20 @@ query GetRequest($id: String!) {
     }
     createdDate,
     enquiries {
-      id
+      id,
+      message,
+      initialConsultationFee,
+      estimatedPrice,
+      officeAppointment,
+      phoneAppointment,
+      videoCallAppointment,
+      createdAt,
+      user {
+        name,
+      },
+      account {
+        name,
+      }
     },
   }
 }

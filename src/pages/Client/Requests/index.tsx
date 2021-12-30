@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import BackdropLoader from '../../../components/molecules/backdropLoader';
 import CardRow from '../../../components/molecules/CardRow';
 import Drawer from '../../../components/molecules/Drawer';
-import { Request as RequestDrawer } from '../../../components/organisms/Requests';
+import { Request as RequestDrawer } from '../../../components/organisms/Request';
 import { Summary } from '../../../components/templates/Client';
 import { Request } from '../../../models/request';
 import { GET_REQUESTS } from '../../../queries/requests';
@@ -17,7 +17,6 @@ const BreadCrumbs = ([
 const Requests: React.FC = () => {
   const [request, setRequest] = useState<Request>();
   const { data, loading, error } = useQuery<{ requests: Request[] }>(GET_REQUESTS);
-
   return (
     <>
       <div>
@@ -28,9 +27,13 @@ const Requests: React.FC = () => {
           rightElement={(
             <Button
               variant="contained"
+              disabled={!data?.requests}
               style={{
                 width: '250px',
                 height: '50px',
+              }}
+              onClick={() => {
+                if (data?.requests) history.push(`/client/requests/${data.requests[0].id}`);
               }}
             >
               View Your Latest Request
@@ -47,7 +50,6 @@ const Requests: React.FC = () => {
             <CardRow
               key={r.id}
               {...r}
-              enquiriesCount={r.enquiries.length}
               handleViewMoreInfoClick={() => setRequest(r)}
               handleViewResponsesClick={() => history.push(`/client/requests/${r.id}`)}
             />
@@ -61,6 +63,7 @@ const Requests: React.FC = () => {
           && (
             <RequestDrawer
               {...request}
+              description={request.description}
               topic={request?.topic.name}
               handleViewResponsesClick={() => history.push(`/client/requests/${request?.id}`)}
             />

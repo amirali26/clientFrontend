@@ -36,7 +36,7 @@ export const Request: React.FC<IProps> = ({
         color="primary"
         value={description}
         multiline
-        rows={10}
+        rows={20}
         disabled
         className="marginBottomSmall"
       />
@@ -67,5 +67,4 @@ export const Request: React.FC<IProps> = ({
     }
   </div>
 );
-
 export default Request;

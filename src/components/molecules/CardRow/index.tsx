@@ -1,7 +1,10 @@
-import { Button, Divider, Typography } from 'helpmycase-storybook/dist/components/External';
+import {
+  Button, Typography,
+} from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
 import { Topic } from '../../../models/topic';
 import convertToDateTime from '../../../utils/datetime';
+import Card from '../Card';
 
 interface IProps {
   handleViewResponsesClick: () => void;
@@ -9,75 +12,58 @@ interface IProps {
   description: string,
   topic: Topic,
   createdDate: string,
-  enquiriesCount: number,
 }
 
 const CardRow: React.FC<IProps> = ({
   description,
   topic,
   createdDate,
-  enquiriesCount,
   handleViewResponsesClick,
   handleViewMoreInfoClick,
 }) => (
-  <div style={{
-    width: '425px',
-    marginBottom: '16px',
-    marginRight: '32px',
-    backgroundColor: 'rgb(247, 247, 247)',
-    boxSizing: 'border-box',
-    borderRadius: '5px',
-  }}
-  >
-    <div style={{
-      display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '24px 24px 0  24px',
+  <Card.Main>
+    <Card.Section style={{
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     }}
     >
       <Typography style={{ fontWeight: 'bolder', fontSize: '16px' }}>{topic.name}</Typography>
       <Typography style={{ fontSize: '16px' }}>{convertToDateTime(createdDate)}</Typography>
-    </div>
-    <div style={{ margin: '16px 0' }}>
-      <Divider />
-    </div>
-    <div style={{
-      padding: '0 24px 24px  24px',
-    }}
-    >
-      <Typography style={{ fontSize: '16px' }}>{description}</Typography>
-    </div>
-    <div style={{
+    </Card.Section>
+    <Card.Divider />
+    <Card.Section style={{ paddingTop: '8px' }}>
+      <Typography style={{ fontSize: '16px', color: '#999999f7 !important' }}>
+        {description.length >= 250 ? `${description.slice(0, 247)}...` : description}
+      </Typography>
+    </Card.Section>
+    <Card.Section style={{
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
       padding: '0 24px 24px  24px',
       alignItems: 'center',
+      marginTop: '32px',
     }}
     >
-      <Typography style={{ fontWeight: 'bolder', fontSize: '16px' }}>
-        {enquiriesCount ? `${enquiriesCount} responses` : 'No responses'}
-        {' '}
-        responses
-      </Typography>
-      <div style={{ width: '155px' }}>
-        <Button
-          onClick={handleViewResponsesClick}
-          fullWidth
-          variant="contained"
-          style={{ width: '155px', marginBottom: '16px' }}
-        >
-          View Responses
-        </Button>
-        <Button
-          onClick={handleViewMoreInfoClick}
-          fullWidth
-          variant="outlined"
-          style={{ width: '155px' }}
-        >
-          View More Info
-        </Button>
-      </div>
-    </div>
-  </div>
+      <Button
+        onClick={handleViewMoreInfoClick}
+        fullWidth
+        variant="outlined"
+        style={{ width: '155px' }}
+      >
+        More Info
+      </Button>
+      <Button
+        onClick={handleViewResponsesClick}
+        fullWidth
+        variant="contained"
+        style={{ width: '155px' }}
+      >
+        Go To Responses
+      </Button>
+    </Card.Section>
+  </Card.Main>
 );
 
 export default CardRow;

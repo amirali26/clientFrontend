@@ -1,4 +1,5 @@
 import { Request } from './request';
+import { User } from './user';
 
 export type EnquiryInput = {
     message: string,
@@ -19,6 +20,7 @@ export type Enquiry = {
     phoneAppointment: boolean,
     videoCallAppointment: boolean,
     createdAt: string,
+    user: User,
     request: Request,
 };
 
