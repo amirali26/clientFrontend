@@ -1,5 +1,5 @@
 import {
-  Checkbox, FormControlLabel, InputAdornment, InputLabel, OutlinedInput, TextField,
+  Checkbox, Chip, Divider, FormControlLabel, InputAdornment, InputLabel, OutlinedInput, TextField,
 } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
 import { Enquiry as EnquiryType } from '../../../../models/enquiry';
@@ -14,6 +14,7 @@ export const Enquiry: React.FC<Props> = ({
   message,
   initialConsultationFee,
   estimatedPrice,
+  user,
 }) => {
   const title = 'Request Response';
   const subtitle = 'Detailed view of a response made by a solicitor regarding your case';
@@ -23,8 +24,76 @@ export const Enquiry: React.FC<Props> = ({
       <Title
         title={title}
         subtitle={subtitle}
+        hideDivider
       />
+      <div className="fullWidth marginBottom marginTop">
+        <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
+          <Chip label="Solicitor" color="primary" />
+        </Divider>
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Name</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={user.name}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Email</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={user.email}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Phone Number</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={user.phoneNumber}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Date of Birth</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={user.dateOfBirth}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+      </div>
+      <div className="fullWidth marginBottom">
+        <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
+          <Chip label="Firm" color="primary" />
+        </Divider>
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Name</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={user.name}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Solicitor Name</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={user.name}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+      </div>
       <div className="fullWidth">
+        <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
+          <Chip label="Request Response" color="primary" />
+        </Divider>
         <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Message</InputLabel>
         <TextField
           id="input-with-icon-adornment"

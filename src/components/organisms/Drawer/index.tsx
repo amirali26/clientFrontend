@@ -1,5 +1,5 @@
 import {
-  Chat, Home, Logout, MeetingRoom,
+  Chat, Home, MeetingRoom,
 } from '@mui/icons-material';
 import {
   Box, List, ListItem, ListItemIcon, ListItemText, SwipeableDrawer,
@@ -20,7 +20,7 @@ const routes: { name: string, route: string, icon: React.ReactElement }[] = [
   },
   {
     name: 'Logout',
-    route: '/dashboard/logout',
+    route: '/auth/logout',
     icon: <MeetingRoom />,
   },
 ];
@@ -51,17 +51,6 @@ const list = (handleClose: () => void) => (
         </ListItem>
       ))}
     </List>
-    {/* <Divider />
-    <List>
-      {['All mail', 'Trash', 'Spam'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>
-            {index % 2 === 0 ? <InboxOutlined /> : <MailOutline />}
-          </ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-    </List> */}
   </Box>
 );
 

@@ -1,5 +1,7 @@
 import { useQuery } from '@apollo/client';
-import { Button, Link, Typography } from 'helpmycase-storybook/dist/components/External';
+import {
+  Button, Link, Typography,
+} from 'helpmycase-storybook/dist/components/External';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackdropLoader from '../../../components/molecules/backdropLoader';
@@ -73,7 +75,9 @@ const Request: React.FC = () => {
         {
           enquiry
           && (
-            <EnquiryForm {...enquiry} />
+            <>
+              <EnquiryForm {...enquiry} />
+            </>
           )
         }
       </Drawer>

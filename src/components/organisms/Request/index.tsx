@@ -1,6 +1,7 @@
 import { Button, InputLabel, TextField } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
 import convertToDateTime from '../../../utils/datetime';
+import Title from '../../molecules/Title';
 
 type IProps = {
   topic: string,
@@ -18,6 +19,10 @@ export const Request: React.FC<IProps> = ({
       display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%',
     }}
   >
+    <Title
+      title="Request Information"
+      subtitle="Detailed description of your request"
+    />
     <div>
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Topic</InputLabel>
       <TextField

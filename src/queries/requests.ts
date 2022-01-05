@@ -36,6 +36,9 @@ query GetRequest($id: String!) {
       createdAt,
       user {
         name,
+        email,
+        phoneNumber,
+        dateOfBirth
       },
       account {
         name,

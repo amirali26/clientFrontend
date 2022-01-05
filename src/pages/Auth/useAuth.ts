@@ -47,10 +47,13 @@ const useAuth = () => {
     }
   };
 
-  const handleLogout = async () => {
+  const handleLogout = async (redirect = true) => {
     try {
       await Auth.signOut();
-      history.push('/auth/login');
+
+      if (redirect) {
+        history.push('/auth/login');
+      }
     } catch (e: any) {
       sb.trigger(e.message || 'There was an issue signing you out');
     }
