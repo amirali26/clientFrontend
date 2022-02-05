@@ -17,6 +17,7 @@ const BreadCrumbs = ([
 const Requests: React.FC = () => {
   const [request, setRequest] = useState<Request>();
   const { data, loading, error } = useQuery<{ requests: Request[] }>(GET_REQUESTS);
+
   return (
     <>
       <div>
@@ -50,6 +51,7 @@ const Requests: React.FC = () => {
             <CardRow
               key={r.id}
               {...r}
+              responseCount={r.enquiries.length}
               handleViewMoreInfoClick={() => setRequest(r)}
               handleViewResponsesClick={() => history.push(`/client/requests/${r.id}`)}
             />
@@ -63,6 +65,7 @@ const Requests: React.FC = () => {
           && (
             <RequestDrawer
               {...request}
+              responseCount={request.enquiries.length}
               description={request.description}
               topic={request?.topic.name}
               handleViewResponsesClick={() => history.push(`/client/requests/${request?.id}`)}

@@ -1,10 +1,11 @@
 import {
-  Chat, Home, MeetingRoom,
+  Chat, Home,
 } from '@mui/icons-material';
 import {
   Box, List, ListItem, ListItemIcon, ListItemText, SwipeableDrawer,
 } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
+import useAuth from '../../../pages/Auth/useAuth';
 import history from '../../../utils/routes/history';
 
 const routes: { name: string, route: string, icon: React.ReactElement }[] = [
@@ -18,11 +19,6 @@ const routes: { name: string, route: string, icon: React.ReactElement }[] = [
     route: '/dashboard/enquiries',
     icon: <Chat />,
   },
-  {
-    name: 'Logout',
-    route: '/auth/logout',
-    icon: <MeetingRoom />,
-  },
 ];
 
 interface IProps {
@@ -30,7 +26,7 @@ interface IProps {
   handleOpen: (open: boolean) => void;
 }
 
-const list = (handleClose: () => void) => (
+const list = (handleClose: () => void, handleLogout: () => void) => (
   <Box
     role="presentation"
   >
@@ -50,6 +46,14 @@ const list = (handleClose: () => void) => (
           <ListItemText primary={route.name} />
         </ListItem>
       ))}
+      <ListItem
+        button
+        onClick={handleLogout}
+      >
+        <ListItemIcon>
+          Logout
+        </ListItemIcon>
+      </ListItem>
     </List>
   </Box>
 );
@@ -57,21 +61,23 @@ const list = (handleClose: () => void) => (
 export const NavigationSideBar: React.FC<IProps> = ({
   open,
   handleOpen,
-}: IProps) => (
-  <SwipeableDrawer
-    sx={{
-      '& .MuiButtonBase-root': {
-        paddingRight: '30px',
-      },
-    }}
-    open={open}
-    onClose={() => handleOpen(false)}
-    onOpen={() => handleOpen(true)}
-    color="primary"
-  >
-    {list(() => handleOpen(false))}
-  </SwipeableDrawer>
+}: IProps) => {
+  const { handleLogout } = useAuth();
+  return (
+    <SwipeableDrawer
+      sx={{
+        '& .MuiButtonBase-root': {
+          paddingRight: '30px',
+        },
+      }}
+      open={open}
+      onClose={() => handleOpen(false)}
+      onOpen={() => handleOpen(true)}
+      color="primary"
+    >
+      {list(() => handleOpen(false), handleLogout)}
+    </SwipeableDrawer>
 
-);
-
+  );
+};
 export default NavigationSideBar;

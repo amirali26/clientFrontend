@@ -1,10 +1,12 @@
 import { useQuery } from '@apollo/client';
+import { ReportProblemOutlined, WarningAmberRounded, WarningRounded } from '@mui/icons-material';
 import {
   Button, Link, Typography,
 } from 'helpmycase-storybook/dist/components/External';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackdropLoader from '../../../components/molecules/backdropLoader';
+import BigMessage from '../../../components/molecules/bigMessage';
 import Drawer from '../../../components/molecules/Drawer';
 import CardRow from '../../../components/organisms/Enquiries/CardRow';
 import { Enquiry as EnquiryForm } from '../../../components/organisms/Enquiries/Enquiry';
@@ -55,7 +57,11 @@ const Request: React.FC = () => {
         />
       </div>
       <Drawer open={open} onBackdropClick={() => setOpen(false)}>
-        <RequestDrawer {...data.request[0]} topic={data.request[0].topic.name} />
+        <RequestDrawer
+          {...data.request[0]}
+          responseCount={data.request[0].enquiries.length}
+          topic={data.request[0].topic.name}
+        />
       </Drawer>
       <div style={{
         padding: '32px 24px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap',
@@ -69,6 +75,16 @@ const Request: React.FC = () => {
               handleClick={() => setEnquiry(e)}
             />
           ))
+        }
+        {
+          !data?.request[0].enquiries.length && (
+            <BigMessage
+              style={{ top: '60%' }}
+              icon={<WarningAmberRounded />}
+              title="No Responses Yet"
+              subtitle="You have not been contacted by any solicitors yet, please allow atleast 24 hours to get a response"
+            />
+          )
         }
       </div>
       <Drawer open={Boolean(enquiry)} onBackdropClick={() => setEnquiry(undefined)}>

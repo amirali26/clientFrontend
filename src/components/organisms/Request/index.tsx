@@ -7,11 +7,12 @@ type IProps = {
   topic: string,
   createdDate: string,
   description: string,
+  responseCount: number,
   handleViewResponsesClick?: () => void;
 }
 
 export const Request: React.FC<IProps> = ({
-  topic, description, createdDate, handleViewResponsesClick,
+  topic, description, createdDate, responseCount, handleViewResponsesClick,
 }) => (
   <div
     className="fullWidth"
@@ -62,11 +63,12 @@ export const Request: React.FC<IProps> = ({
         <Button
           sx={{ height: '48px' }}
           className="marginTop"
+          disabled={responseCount === 0}
           fullWidth
           variant="contained"
           onClick={handleViewResponsesClick}
         >
-          View Solicitor Responses
+          {`View Solicitor Responses (${responseCount})`}
         </Button>
       )
     }

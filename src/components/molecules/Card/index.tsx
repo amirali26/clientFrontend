@@ -10,8 +10,8 @@ const Main: React.FC<Props> = ({ children, style }) => (
   <div
     className="boxShadow"
     style={{
-      width: '450px',
-      marginBottom: '16px',
+      width: '400px',
+      marginBottom: '32px',
       marginRight: '32px',
       backgroundColor: 'rgb(247, 247, 247)',
       boxSizing: 'border-box',

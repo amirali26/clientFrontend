@@ -6,7 +6,7 @@ import Request from './Request';
 import Requests from './Requests';
 
 const Client: React.FC = () => {
-  const { shouldRedirectToDashboard } = useAuth();
+  const { shouldRedirectToDashboard, handleLogout } = useAuth();
 
   useEffect(() => {
     shouldRedirectToDashboard();
@@ -14,7 +14,7 @@ const Client: React.FC = () => {
 
   return (
     <>
-      <ClientAppBar />
+      <ClientAppBar handleLogout={handleLogout} />
       <Switch>
         <Route path="/client/requests/:id" component={Request} />
         <Route path={['/client/requests/', '/']} component={Requests} />
