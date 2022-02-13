@@ -16,7 +16,11 @@ const initialValues = {
 const formValidationSchema = Yup.object().shape({
   email: Yup.string()
     .required('Email is a required field'),
-  phoneNumber: Yup.string().required('Phone number is a required field'),
+  phoneNumber: Yup.string()
+    .matches(new RegExp('^[0-9]*$'), 'Phone number should be only numbers')
+    .min(10, 'Phone number should be 10 digits')
+    .max(10, 'Phone number should be 10 digits')
+    .required('Phone number is a required field'),
 });
 
 const Login: React.FC = () => {
