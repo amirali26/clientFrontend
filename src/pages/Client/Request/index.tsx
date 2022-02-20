@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client';
-import { ReportProblemOutlined, WarningAmberRounded, WarningRounded } from '@mui/icons-material';
+import { WarningAmberRounded } from '@mui/icons-material';
 import {
-  Button, Link, Typography,
+  Button, Typography,
 } from 'helpmycase-storybook/dist/components/External';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import BackdropLoader from '../../../components/molecules/backdropLoader';
 import BigMessage from '../../../components/molecules/bigMessage';
 import Drawer from '../../../components/molecules/Drawer';
@@ -17,7 +17,7 @@ import { Request as RequestDto } from '../../../models/request';
 import { GET_REQUEST } from '../../../queries/requests';
 
 const BreadCrumbs = (requestId: string) => ([
-  <Link key="/client" underline="hover" color="inherit" href="/client">
+  <Link key="/client" to="/client" style={{ textDecoration: 'none' }}>
     Requests
   </Link>,
   <Typography key="Requests" color="text.primary">{requestId}</Typography>,

@@ -3,6 +3,7 @@ import {
 } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
 import { Enquiry as EnquiryType } from '../../../../models/enquiry';
+import convertToDateTime from '../../../../utils/datetime';
 import Title from '../../../molecules/Title';
 
 type Props = EnquiryType
@@ -15,6 +16,7 @@ export const Enquiry: React.FC<Props> = ({
   initialConsultationFee,
   estimatedPrice,
   user,
+  account,
 }) => {
   const title = 'Request Response';
   const subtitle = 'Detailed view of a response made by a solicitor regarding your case';
@@ -57,15 +59,6 @@ export const Enquiry: React.FC<Props> = ({
           color="primary"
           disabled
         />
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Date of Birth</InputLabel>
-        <TextField
-          id="input-with-icon-adornment"
-          value={user.dateOfBirth}
-          name="message"
-          fullWidth
-          color="primary"
-          disabled
-        />
       </div>
       <div className="fullWidth marginBottom">
         <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
@@ -74,21 +67,61 @@ export const Enquiry: React.FC<Props> = ({
         <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Name</InputLabel>
         <TextField
           id="input-with-icon-adornment"
-          value={user.name}
+          value={account.name}
           name="message"
           fullWidth
           color="primary"
           disabled
         />
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Solicitor Name</InputLabel>
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Phone Number</InputLabel>
         <TextField
           id="input-with-icon-adornment"
-          value={user.name}
+          value={`+44${account.phoneNumber}`}
           name="message"
           fullWidth
           color="primary"
           disabled
         />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Website</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={account.website}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Registered Date</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={convertToDateTime(account.registeredDate)}
+          name="message"
+          fullWidth
+          color="primary"
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Areas of Practice</InputLabel>
+        <div style={{
+          border: '1px solid #5e5e5e44',
+          borderRadius: '5px',
+        }}
+        >
+          {
+            account.areasOfPractice.map((aop: string) => (
+              <FormControlLabel
+                key={aop}
+                checked
+                disabled
+                className="marginTopMedium"
+                control={
+                  <Checkbox checked />
+                }
+                label={aop}
+                sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
+              />
+            ))
+          }
+        </div>
       </div>
       <div className="fullWidth">
         <Divider sx={{ '&::before, ::after': { position: 'static' } }}>

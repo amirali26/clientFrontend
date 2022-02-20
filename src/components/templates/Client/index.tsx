@@ -1,5 +1,6 @@
-import { Breadcrumbs, Divider, Link } from 'helpmycase-storybook/dist/components/External';
+import { Breadcrumbs, Divider } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Title from '../../molecules/Title';
 
 type ISummaryProps = {
@@ -20,7 +21,7 @@ export const Summary: React.FC<ISummaryProps> = ({
       }}
     >
       <Breadcrumbs aria-label="breadcrumb">
-        <Link key="/client" underline="hover" color="inherit" href="/client">
+        <Link key="/client" to="/client" style={{ textDecoration: 'none', color: 'inherit' }}>
           Home
         </Link>
         {breadcrumbs}

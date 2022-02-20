@@ -1,3 +1,4 @@
+import { Account } from './account';
 import { Request } from './request';
 import { User } from './user';
 
@@ -21,6 +22,7 @@ export type Enquiry = {
     videoCallAppointment: boolean,
     createdAt: string,
     user: User,
+    account: Account,
     request: Request,
 };
 

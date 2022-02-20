@@ -1,5 +1,8 @@
 export type Account = {
-    id: string,
     name: string,
-    permissions: string[],
+    website: string,
+    phoneNumber: string,
+    email: string,
+    registeredDate: string,
+    areasOfPractice: string[],
 }
