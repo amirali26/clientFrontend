@@ -28,7 +28,75 @@ export const Enquiry: React.FC<Props> = ({
         subtitle={subtitle}
         hideDivider
       />
-      <div className="fullWidth marginBottom marginTop">
+      <div className="fullWidth  marginBottom marginTop">
+        <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
+          <Chip label="Solicitor's Message" color="primary" />
+        </Divider>
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Message</InputLabel>
+        <TextField
+          id="input-with-icon-adornment"
+          value={message}
+          name="message"
+          fullWidth
+          color="primary"
+          multiline
+          rows={8}
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Initial Consulation Fee</InputLabel>
+        <OutlinedInput
+          id="input-with-icon-adornment"
+          name="initialConsultationFee"
+          value={initialConsultationFee}
+          fullWidth
+          color="primary"
+          startAdornment={<InputAdornment position="start">£</InputAdornment>}
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Estimated Fee</InputLabel>
+        <OutlinedInput
+          id="input-with-icon-adornment"
+          name="estimatedPrice"
+          value={estimatedPrice}
+          fullWidth
+          color="primary"
+          startAdornment={<InputAdornment position="start">£</InputAdornment>}
+          disabled
+        />
+        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Availablity</InputLabel>
+        <FormControlLabel
+          checked={Boolean(officeAppointment)}
+          className="marginTopMedium"
+          control={
+            <Checkbox checked={Boolean(officeAppointment)} />
+          }
+          label="Office Appointments"
+          sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
+          disabled
+        />
+        <br />
+        <FormControlLabel
+          checked={Boolean(videoCallAppointment)}
+          className="marginTopMedium"
+          control={
+            <Checkbox checked={Boolean(videoCallAppointment)} />
+          }
+          label="Video Call Appointments"
+          sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
+          disabled
+        />
+        <FormControlLabel
+          checked={Boolean(phoneAppointment)}
+          className="marginTopMedium"
+          control={
+            <Checkbox checked={Boolean(phoneAppointment)} />
+          }
+          label="Phone Appointments"
+          sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
+          disabled
+        />
+      </div>
+      <div className="fullWidth">
         <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
           <Chip label="Solicitor" color="primary" />
         </Divider>
@@ -122,74 +190,6 @@ export const Enquiry: React.FC<Props> = ({
             ))
           }
         </div>
-      </div>
-      <div className="fullWidth">
-        <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
-          <Chip label="Solicitor's Message" color="primary" />
-        </Divider>
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Message</InputLabel>
-        <TextField
-          id="input-with-icon-adornment"
-          value={message}
-          name="message"
-          fullWidth
-          color="primary"
-          multiline
-          rows={8}
-          disabled
-        />
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Initial Consulation Fee</InputLabel>
-        <OutlinedInput
-          id="input-with-icon-adornment"
-          name="initialConsultationFee"
-          value={initialConsultationFee}
-          fullWidth
-          color="primary"
-          startAdornment={<InputAdornment position="start">£</InputAdornment>}
-          disabled
-        />
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Estimated Fee</InputLabel>
-        <OutlinedInput
-          id="input-with-icon-adornment"
-          name="estimatedPrice"
-          value={estimatedPrice}
-          fullWidth
-          color="primary"
-          startAdornment={<InputAdornment position="start">£</InputAdornment>}
-          disabled
-        />
-        <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Availablity</InputLabel>
-        <FormControlLabel
-          checked={Boolean(officeAppointment)}
-          className="marginTopMedium"
-          control={
-            <Checkbox checked={Boolean(officeAppointment)} />
-          }
-          label="Office Appointments"
-          sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
-          disabled
-        />
-        <br />
-        <FormControlLabel
-          checked={Boolean(videoCallAppointment)}
-          className="marginTopMedium"
-          control={
-            <Checkbox checked={Boolean(videoCallAppointment)} />
-          }
-          label="Video Call Appointments"
-          sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
-          disabled
-        />
-        <FormControlLabel
-          checked={Boolean(phoneAppointment)}
-          className="marginTopMedium"
-          control={
-            <Checkbox checked={Boolean(phoneAppointment)} />
-          }
-          label="Phone Appointments"
-          sx={{ margin: 0, marginTop: '0 !important', width: '100%' }}
-          disabled
-        />
       </div>
     </form>
   );
