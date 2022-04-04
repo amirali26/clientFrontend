@@ -4,6 +4,7 @@ import {
   Button, CircularProgress, InputLabel, TextField, Typography,
 } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import * as Yup from 'yup';
 import FormTitle from '../../../components/molecules/auth/FormTitle';
 import useAuth from '../useAuth';
@@ -37,6 +38,9 @@ const Login: React.FC = () => {
         title="Log in"
         subtitle="To view your enquiries please provide our email and phone number"
       />
+      <Typography sx={{ marginTop: '16px' }}>
+        Your email address is the same email which you used to submit your enquiry.
+      </Typography>
       <div className="fullWidth marginTop">
         <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Email</InputLabel>
         <TextField
@@ -81,6 +85,13 @@ const Login: React.FC = () => {
         >
           Login
         </Button>
+        <div className="marginTopMedium fullWidth textAlignLeft">
+          <Typography variant="subtitle1">
+            Have not submitted an enquiry yet?
+            {' '}
+            <a className="underline red" href="https://helpmycase.co.uk/submit-request/" target="_blank" rel="noreferrer">Submit enquiry</a>
+          </Typography>
+        </div>
       </div>
     </form>
   );
