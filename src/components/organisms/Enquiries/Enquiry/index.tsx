@@ -18,7 +18,7 @@ export const Enquiry: React.FC<Props> = ({
   user,
   account,
 }) => {
-  const title = 'Request Response';
+  const title = "Solicitor's Message";
   const subtitle = 'Detailed view of a response made by a solicitor regarding your case';
 
   return (
@@ -125,7 +125,7 @@ export const Enquiry: React.FC<Props> = ({
       </div>
       <div className="fullWidth">
         <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
-          <Chip label="Request Response" color="primary" />
+          <Chip label="Solicitor's Message" color="primary" />
         </Divider>
         <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Message</InputLabel>
         <TextField
