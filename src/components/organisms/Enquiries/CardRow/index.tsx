@@ -12,6 +12,7 @@ type Props = {
 
 const CardRow: React.FC<Props> = ({
   user,
+  account,
   initialConsultationFee,
   estimatedPrice,
   createdAt,
@@ -24,7 +25,14 @@ const CardRow: React.FC<Props> = ({
       justifyContent: 'space-between',
     }}
     >
-      <Typography style={{ fontWeight: 'bolder', fontSize: '16px' }}>{user.name}</Typography>
+      <div>
+        <Typography style={{ fontWeight: 'bolder', fontSize: '16px' }}>
+          {user.name}
+        </Typography>
+        <Typography style={{ fontWeight: 400, fontSize: '16px' }}>
+          {account.name}
+        </Typography>
+      </div>
       <Typography style={{ fontSize: '16px' }}>{convertToDateTime(createdAt)}</Typography>
     </Card.Section>
     <Card.Divider />
