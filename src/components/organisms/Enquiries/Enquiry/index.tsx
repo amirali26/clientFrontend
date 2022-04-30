@@ -80,17 +80,17 @@ export const Enquiry: React.FC<Props> = ({
         <Avatar variant="rounded" src={account.imageUrl} style={{ width: '88px', height: '88px' }}>
           {!account.imageUrl && account.name[0]}
         </Avatar>
-        <div style={{ marginLeft: '16px' }}>
-          <Typography variant="h6" style={{ lineHeight: '1.5', fontWeight: 'bold' }}>{account.name}</Typography>
-          <Typography variant="subtitle1" style={{ lineHeight: '1' }}>
+        <div style={{ margin: '8px 16px' }}>
+          <Typography variant="subtitle1" style={{ lineHeight: '1.5', fontWeight: 'bold' }}>{account.name}</Typography>
+          <Typography variant="body2" style={{ lineHeight: '1.2' }}>
             {account.email}
           </Typography>
-          <Typography variant="subtitle1" style={{ lineHeight: '1' }}>
+          <Typography variant="body2" style={{ lineHeight: '1.2' }}>
             +44
             {' '}
             {account.phoneNumber}
           </Typography>
-          <Typography variant="subtitle1" style={{ lineHeight: '1' }}>
+          <Typography variant="body2" style={{ lineHeight: '1.2' }}>
             {account.website}
           </Typography>
         </div>
