@@ -116,7 +116,6 @@ export const Enquiry: React.FC<Props> = ({
         fullWidth
         color="primary"
         multiline
-        rows={8}
         inputProps={{
           disabled: 'true',
         }}
