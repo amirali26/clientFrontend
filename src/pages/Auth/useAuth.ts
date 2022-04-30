@@ -17,8 +17,10 @@ const useAuth = () => {
       history.push('/auth/verify', {
         verify: false,
       });
-    } catch (e: any) {
-      sb.trigger(e.message || 'Something went wrong with signing you in');
+    } catch (e) {
+      if (e instanceof Error) {
+        sb.trigger(e.message || 'Something went wrong with signing you in');
+      }
     } finally {
       setLoading(false);
     }
@@ -32,8 +34,10 @@ const useAuth = () => {
       const result = await Auth.sendCustomChallengeAnswer(user, code);
       setUser(result);
       history.push('/client');
-    } catch (e: any) {
-      sb.trigger(e.message || 'Something went wrong when verifying your MFA');
+    } catch (e) {
+      if (e instanceof Error) {
+        sb.trigger(e.message || 'Something went wrong when verifying your MFA');
+      }
     } finally {
       setLoading(false);
     }
@@ -42,7 +46,7 @@ const useAuth = () => {
   const isLoggedIn = async () => {
     try {
       return await Auth.currentSession();
-    } catch (e: any) {
+    } catch (e) {
       return false;
     }
   };
@@ -54,8 +58,10 @@ const useAuth = () => {
       if (redirect) {
         history.push('/auth/login');
       }
-    } catch (e: any) {
-      sb.trigger(e.message || 'There was an issue signing you out');
+    } catch (e) {
+      if (e instanceof Error) {
+        sb.trigger(e.message || 'There was an issue signing you out');
+      }
     }
   };
 

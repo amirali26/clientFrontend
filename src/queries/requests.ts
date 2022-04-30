@@ -37,14 +37,17 @@ query GetRequest($id: String!) {
       user {
         name,
         email,
-        phoneNumber
+        phoneNumber,
+        imageUrl
       },
       account {
         name,
         website,
+        email,
         phoneNumber,
         registeredDate,
-        areasOfPractice
+        areasOfPractice,
+        imageUrl
       }
     },
   }

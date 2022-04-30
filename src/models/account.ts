@@ -4,5 +4,6 @@ export type Account = {
     phoneNumber: string,
     email: string,
     registeredDate: string,
+    imageUrl?: string,
     areasOfPractice: string[],
 }

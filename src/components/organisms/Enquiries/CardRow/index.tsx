@@ -42,14 +42,14 @@ const CardRow: React.FC<Props> = ({
           Consultation Fee:
         </span>
         {' '}
-        {initialConsultationFee ? `£${initialConsultationFee}` : 'Free'}
+        {initialConsultationFee ? `£${initialConsultationFee.toFixed(2).toLocaleString()}` : 'Free'}
       </Typography>
       <Typography style={{ fontSize: '16px' }}>
         <span color="#999999f7" style={{ width: '180px', display: 'inline-flex' }}>
           Estimated Price:
         </span>
         {' '}
-        {estimatedPrice ? `£${estimatedPrice}` : 'Free'}
+        {estimatedPrice ? `£${estimatedPrice.toFixed(2).toLocaleString()}` : 'Free'}
       </Typography>
     </Card.Section>
     <Card.Section style={{
@@ -66,7 +66,7 @@ const CardRow: React.FC<Props> = ({
         fullWidth
         variant="contained"
       >
-        View Enquiry
+        View Solicitor
       </Button>
     </Card.Section>
   </Card.Main>

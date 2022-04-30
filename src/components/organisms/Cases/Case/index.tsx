@@ -30,7 +30,9 @@ const Case: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={topic}
-        disabled
+        inputProps={{
+          disabled: 'true',
+        }}
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Name</InputLabel>
       <TextField
@@ -39,7 +41,9 @@ const Case: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={name}
-        disabled
+        inputProps={{
+          disabled: 'true',
+        }}
         className="marginBottomSmall"
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Phone Number</InputLabel>
@@ -49,7 +53,9 @@ const Case: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={phoneNumber}
-        disabled
+        inputProps={{
+          disabled: 'true',
+        }}
         className="marginBottomSmall"
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Email</InputLabel>
@@ -59,7 +65,9 @@ const Case: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={email}
-        disabled
+        inputProps={{
+          disabled: 'true',
+        }}
         className="marginBottomSmall"
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Description</InputLabel>
@@ -69,7 +77,9 @@ const Case: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={description}
-        disabled
+        inputProps={{
+          disabled: 'true',
+        }}
         className="marginBottomSmall"
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Created Date</InputLabel>
@@ -79,7 +89,9 @@ const Case: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={convertToDateTime(createdDate)}
-        disabled
+        inputProps={{
+          disabled: 'true',
+        }}
         className="marginBottomSmall"
       />
     </div>

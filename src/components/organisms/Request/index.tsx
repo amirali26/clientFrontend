@@ -32,7 +32,9 @@ export const Request: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={topic}
-        disabled
+        inputProps={{
+          disabled: true,
+        }}
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopSmall">Description</InputLabel>
       <TextField
@@ -43,7 +45,9 @@ export const Request: React.FC<IProps> = ({
         value={description}
         multiline
         rows={20}
-        disabled
+        inputProps={{
+          disabled: true,
+        }}
         className="marginBottomSmall"
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Created Date</InputLabel>
@@ -53,7 +57,9 @@ export const Request: React.FC<IProps> = ({
         fullWidth
         color="primary"
         value={convertToDateTime(createdDate)}
-        disabled
+        inputProps={{
+          disabled: true,
+        }}
         className="marginBottomSmall"
       />
     </div>

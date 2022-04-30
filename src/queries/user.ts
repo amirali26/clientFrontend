@@ -17,6 +17,7 @@ export const GET_USER = gql`
             id,
             name,
             phoneNumber,
+            imageUrl,
             email,
             accounts {
               id,

@@ -15,6 +15,7 @@ query GetEnquiries {
         user {
             name,
             email,
+            imageUrl
         }
         request {
           id,

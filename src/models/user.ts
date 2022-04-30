@@ -5,5 +5,6 @@ export type User = {
     name: string,
     email: string,
     phoneNumber: string,
+    imageUrl?: string,
     accounts: Account[],
 }
