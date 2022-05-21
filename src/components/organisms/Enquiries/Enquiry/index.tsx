@@ -77,7 +77,7 @@ export const Enquiry: React.FC<Props> = ({
           },
         }}
       >
-        <Avatar variant="rounded" src={account.imageUrl} style={{ width: '88px', height: '88px' }}>
+        <Avatar variant="rounded" src={account.imageUrl} style={{ width: '90px', height: '90px' }}>
           {!account.imageUrl && account.name[0]}
         </Avatar>
         <div style={{ margin: '8px 16px' }}>
@@ -117,7 +117,7 @@ export const Enquiry: React.FC<Props> = ({
         color="primary"
         multiline
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Initial Consulation Fee</InputLabel>
@@ -129,7 +129,7 @@ export const Enquiry: React.FC<Props> = ({
         color="primary"
         startAdornment={<InputAdornment position="start">£</InputAdornment>}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Estimated Fee</InputLabel>
@@ -141,7 +141,7 @@ export const Enquiry: React.FC<Props> = ({
         color="primary"
         startAdornment={<InputAdornment position="start">£</InputAdornment>}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall marginTopMedium">Availablity</InputLabel>

@@ -31,7 +31,7 @@ const Case: React.FC<IProps> = ({
         color="primary"
         value={topic}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
       />
       <InputLabel htmlFor="input-with-icon-adornment" className="marginBottomSmall">Name</InputLabel>
@@ -42,7 +42,7 @@ const Case: React.FC<IProps> = ({
         color="primary"
         value={name}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
         className="marginBottomSmall"
       />
@@ -54,7 +54,7 @@ const Case: React.FC<IProps> = ({
         color="primary"
         value={phoneNumber}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
         className="marginBottomSmall"
       />
@@ -66,7 +66,7 @@ const Case: React.FC<IProps> = ({
         color="primary"
         value={email}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
         className="marginBottomSmall"
       />
@@ -78,7 +78,7 @@ const Case: React.FC<IProps> = ({
         color="primary"
         value={description}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
         className="marginBottomSmall"
       />
@@ -90,7 +90,7 @@ const Case: React.FC<IProps> = ({
         color="primary"
         value={convertToDateTime(createdDate)}
         inputProps={{
-          disabled: 'true',
+          disabled: true,
         }}
         className="marginBottomSmall"
       />
