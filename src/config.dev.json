@@ -1,0 +1,8 @@
+{
+  "url": "https://dev-client.helpmycase.co.uk",
+    "REACT_APP_COGNITO": {
+    "poolId": "eu-west-1_p5ZLtTjRJ",
+    "clientId": "16kev1ju4pvlrem55r54hft1na",
+    "storage": "localStorage"
+  }
+}
