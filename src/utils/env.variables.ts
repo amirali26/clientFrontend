@@ -1,3 +1,6 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const env = require(`../config.${process.env.REACT_APP_ENV}.json`);
 interface CognitoConfig {
   poolId: string;
   clientId: string;
@@ -8,13 +11,12 @@ interface EnvironmentConfig {
   REACT_APP_API_URL: string;
   REACT_APP_COGNITO: CognitoConfig;
 }
-
 // Default is development
 const environmentVars: EnvironmentConfig = {
-  REACT_APP_API_URL: window.location.href.includes('client.helpmycase.co.uk') ? 'https://client-api.helpmycase.co.uk' : 'https://localhost:8082',
+  REACT_APP_API_URL: env.url,
   REACT_APP_COGNITO: {
-    poolId: 'eu-west-1_v9qp31myU',
-    clientId: '7ef3jr6tmeqg2h0io8ptkvlbhq',
+    poolId: env.REACT_APP_COGNITO.poolId,
+    clientId: env.REACT_APP_COGNITO.clientId,
     storage: localStorage,
   },
 };
