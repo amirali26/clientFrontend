@@ -59,7 +59,7 @@ export const Enquiry: React.FC<Props> = ({
         </Typography>
       </div>
     </div>
-    <a href={`https://${account.website}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+    <a href={account.website} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
       <Box
         style={{
           display: 'flex',
