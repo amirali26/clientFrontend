@@ -18,9 +18,13 @@ export const useStyles = Styles.makeStyles({
       justifyContent: 'space-between',
       width: '100%',
     },
-    '& > div > input': {
-      width: '60px !important',
-      height: '60px !important',
+  },
+  '@media (min-width: 1200px)': {
+    codeWrapper: {
+      '& > div > input': {
+        width: '60px !important',
+        height: '60px !important',
+      },
     },
   },
 });
