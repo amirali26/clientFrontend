@@ -60,9 +60,13 @@ const useStyles = Styles.makeStyles({
       justifyContent: 'center',
       width: 'auto',
       maxWidth: '90%',
+      '& h2': {
+        fontSize: '30px !important',
+      },
     },
     form: {
       width: '100% !important',
+      padding: '16px !important',
       boxSizing: 'border-box',
       '& > form': {
         width: '100%',
@@ -70,6 +74,12 @@ const useStyles = Styles.makeStyles({
     },
     welcome: {
       display: 'none',
+    },
+  },
+  '@media (max-width: 550px)': {
+    root: {
+      justifyContent: 'flex-start',
+      paddingTop: '16px',
     },
   },
 });

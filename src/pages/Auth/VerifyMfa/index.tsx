@@ -27,6 +27,13 @@ export const useStyles = Styles.makeStyles({
       },
     },
   },
+  '@media (max-width: 550px)': {
+    codeWrapper: {
+      '& .react-code-input input': {
+        paddingLeft: '0 !important',
+      },
+    },
+  },
 });
 
 const initialValues = {

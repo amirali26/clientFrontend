@@ -16,7 +16,7 @@ const NavigationAppBar: React.FC<Props> = ({ handleLogout }) => (
         <Logo width={200} />
       </div>
       <div style={{ flexGrow: 1 }} />
-      <IconButton size="large" color="inherit" onClick={handleLogout}>
+      <IconButton sx={{ paddingBottom: '20px' }} size="large" color="inherit" onClick={handleLogout}>
         <Typography sx={{ color: 'white', marginRight: '8px' }}>Logout</Typography>
         <MeetingRoom />
       </IconButton>

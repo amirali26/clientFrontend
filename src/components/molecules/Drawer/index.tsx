@@ -4,6 +4,10 @@ import React from 'react';
 type IProps = DrawerProps
 
 const MuiStyledDrawer = styled(MuiDrawer)<IProps>({
+  '& > .MuiPaper-root': {
+    width: '664px',
+    maxWidth: '90%',
+  },
   '@media (max-width: 599px)': {
     '.MuiPaper-root': {
       maxWidth: '90%',
@@ -22,7 +26,6 @@ const Drawer: React.FC<IProps> = ({ children, ...rest }: IProps) => (
     <div
       className="flex fullWidth row alignItemsCenter"
       style={{
-        minWidth: '664px',
         boxSizing: 'border-box',
         padding: '32px 24px',
         height: '64px',

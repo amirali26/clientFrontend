@@ -130,6 +130,81 @@
     padding-right: 8px !important
 }
 
+@media (max-width: 550px) {
+    .marginTop {
+    margin-top: 16px !important
+    }
+    .marginBottom {
+        margin-bottom: 16px !important
+    }
+    .marginLeft {
+        margin-left: 16px !important
+    }
+    .marginRight {
+        margin-right: 16px !important
+    }
+    .marginTopMedium {
+        margin-top: 8px !important
+    }
+    .marginBottomMedium {
+        margin-bottom: 8px !important
+    }
+    .marginLeftMedium {
+        margin-left: 8px !important
+    }
+    .marginRightMedium {
+        margin-right: 8px !important
+    }
+    .marginTopSmall {
+        margin-top: 4px !important
+    }
+    .marginBottomSmall {
+        margin-bottom: 4px !important
+    }
+    .marginLeftSmall {
+        margin-left: 4px !important
+    }
+    .marginRightSmall {
+        margin-right: 4px !important
+    }
+    .paddingTop {
+    padding-top: 16px !important
+    }
+    .paddingBottom {
+        padding-bottom: 16px !important
+    }
+    .paddingLeft {
+        padding-left: 16px !important
+    }
+    .paddingRight {
+        padding-right: 16px !important
+    }
+    .paddingTopMedium {
+        padding-top: 8px !important
+    }
+    .paddingBottomMedium {
+        padding-bottom: 8px !important
+    }
+    .paddingLeftMedium {
+        padding-left: 8px !important
+    }
+    .paddingRightMedium {
+        padding-right: 8px !important
+    }
+    .paddingTopSmall {
+        padding-top: 4px !important
+    }
+    .paddingBottomSmall {
+        padding-bottom: 4px !important
+    }
+    .paddingLeftSmall {
+        padding-left: 4px !important
+    }
+    .paddingRightSmall {
+        padding-right: 4px !important
+    }
+}
+
 /* Borders */
 .borderRadius {
     border-radius: 5px;
