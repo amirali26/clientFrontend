@@ -54,6 +54,24 @@ const useStyles = Styles.makeStyles({
       width: '500px',
     },
   },
+  '@media (max-width: 1200px)': {
+    card: {
+      border: 0,
+      justifyContent: 'center',
+      width: 'auto',
+      maxWidth: '90%',
+    },
+    form: {
+      width: '100% !important',
+      boxSizing: 'border-box',
+      '& > form': {
+        width: '100%',
+      },
+    },
+    welcome: {
+      display: 'none',
+    },
+  },
 });
 
 const Auth: React.FC = () => {

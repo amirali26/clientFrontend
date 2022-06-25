@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import { WarningAmberRounded } from '@mui/icons-material';
 import {
-  Button, Typography,
+  Button, styled, Typography,
 } from 'helpmycase-storybook/dist/components/External';
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -23,11 +23,21 @@ const BreadCrumbs = (requestId: string) => ([
   <Typography key="Requests" color="text.primary">{requestId}</Typography>,
 ]);
 
+const ButtonStyled = styled(Button)`
+  width: 250px;
+  height: 50px;
+  @media (max-width: 768px) {
+    margin-top: 16px;
+    width: auto;
+    height: auto;
+  }
+`;
+
 const Request: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [open, setOpen] = useState<boolean>(false);
   const [enquiry, setEnquiry] = useState<Enquiry>();
-  const { data, loading, error } = useQuery<{ request: RequestDto[] }>(GET_REQUEST, {
+  const { data, loading } = useQuery<{ request: RequestDto[] }>(GET_REQUEST, {
     variables: {
       id,
     },
@@ -43,16 +53,12 @@ const Request: React.FC = () => {
           title="My Requests"
           subtitle="A detailed list of all of your requests which have been made"
           rightElement={(
-            <Button
+            <ButtonStyled
               variant="contained"
-              style={{
-                width: '250px',
-                height: '50px',
-              }}
               onClick={() => setOpen(true)}
             >
               View Request Info
-            </Button>
+            </ButtonStyled>
           )}
         />
       </div>

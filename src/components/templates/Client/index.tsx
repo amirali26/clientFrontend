@@ -1,6 +1,7 @@
 import { Breadcrumbs, Divider } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import Title from '../../molecules/Title';
 
 type ISummaryProps = {
@@ -10,12 +11,31 @@ type ISummaryProps = {
   rightElement?: JSX.Element,
 }
 
+const SummaryHeader = styled.div`
+  background-color: #F7F7F7;
+
+  .contentHolder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    width: 100%:
+  }
+  @media (max-width: 768px) {
+    .contentHolder {
+      flex-direction:  column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+`;
+
 export const Summary: React.FC<ISummaryProps> = ({
   breadcrumbs, title, subtitle, rightElement,
 }) => (
-  <div style={{ backgroundColor: '#F7F7F7' }}>
+  <SummaryHeader>
     <div
-      className="paddingTop paddingBottom"
+      className="wrapper paddingTop paddingBottom"
       style={{
         paddingLeft: '24px', paddingRight: '24px',
       }}
@@ -26,14 +46,7 @@ export const Summary: React.FC<ISummaryProps> = ({
         </Link>
         {breadcrumbs}
       </Breadcrumbs>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '24px 0',
-        width: '100%',
-      }}
-      >
+      <div className="contentHolder">
         <div>
           <Title
             title={title}
@@ -47,7 +60,7 @@ export const Summary: React.FC<ISummaryProps> = ({
       </div>
     </div>
     <Divider className="marginTopMedium marginBottomMedium" />
-  </div>
+  </SummaryHeader>
 );
 
 export default {

@@ -2,6 +2,7 @@ import {
   Button, Typography,
 } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
+import styled from 'styled-components';
 import { Topic } from '../../../models/topic';
 import convertToDateTime from '../../../utils/datetime';
 import Card from '../Card';
@@ -14,6 +15,29 @@ interface IProps {
   createdDate: string,
   responseCount: number,
 }
+
+const ButtonWrapper = styled.div({
+  ' > div': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: '0 24px 24px 24px !important',
+    alignItems: 'center',
+    marginTop: '32px',
+  },
+  '@media (max-width: 420px)': {
+    ' > div': {
+      padding: '24px !important',
+      flexDirection: 'column',
+      button: {
+        width: '100% !important',
+      },
+      '> button:first-of-type': {
+        marginBottom: '16px',
+      },
+    },
+  },
+});
 
 const CardRow: React.FC<IProps> = ({
   description,
@@ -45,16 +69,8 @@ const CardRow: React.FC<IProps> = ({
           </Typography>
         </Card.Section>
       </div>
-      <div>
-        <Card.Section style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          padding: '0 24px 24px  24px',
-          alignItems: 'center',
-          marginTop: '32px',
-        }}
-        >
+      <ButtonWrapper>
+        <Card.Section>
           <Button
             onClick={handleViewMoreInfoClick}
             fullWidth
@@ -73,7 +89,7 @@ const CardRow: React.FC<IProps> = ({
             {`Responses (${responseCount})`}
           </Button>
         </Card.Section>
-      </div>
+      </ButtonWrapper>
     </div>
   </Card.Main>
 );

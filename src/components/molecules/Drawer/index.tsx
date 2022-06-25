@@ -1,10 +1,24 @@
-import { DrawerProps, Drawer as MuiDrawer } from 'helpmycase-storybook/dist/components/External';
+import { DrawerProps, Drawer as MuiDrawer, styled } from 'helpmycase-storybook/dist/components/External';
 import React from 'react';
 
 type IProps = DrawerProps
 
+const MuiStyledDrawer = styled(MuiDrawer)<IProps>({
+  '@media (max-width: 599px)': {
+    '.MuiPaper-root': {
+      maxWidth: '90%',
+    },
+    '.MuiPaper-root > div:first-of-type': {
+      padding: '28px 24px !important',
+    },
+    '.MuiPaper-root > div:last-of-type': {
+      margin: '16px !important',
+    },
+  },
+});
+
 const Drawer: React.FC<IProps> = ({ children, ...rest }: IProps) => (
-  <MuiDrawer {...rest} anchor="right">
+  <MuiStyledDrawer {...rest} anchor="right">
     <div
       className="flex fullWidth row alignItemsCenter"
       style={{
@@ -19,7 +33,7 @@ const Drawer: React.FC<IProps> = ({ children, ...rest }: IProps) => (
     <div style={{ margin: '32px' }}>
       {children}
     </div>
-  </MuiDrawer>
+  </MuiStyledDrawer>
 );
 
 export default Drawer;

@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { Button, Typography } from 'helpmycase-storybook/dist/components/External';
+import { Button, styled, Typography } from 'helpmycase-storybook/dist/components/External';
 import React, { useState } from 'react';
 import BackdropLoader from '../../../components/molecules/backdropLoader';
 import CardRow from '../../../components/molecules/CardRow';
@@ -14,9 +14,29 @@ const BreadCrumbs = ([
   <Typography key="Requests" color="text.primary">Requests</Typography>,
 ]);
 
+const ButtonStyled = styled(Button)`
+  width: 250px;
+  height: 50px;
+  @media (max-width: 768px) {
+      margin-top: 16px;
+      width: auto;
+      height: auto;
+  }
+`;
+
+const WrapperStyled = styled('div')({
+  padding: '32px 24px',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  '@media (max-width: 460px)': {
+    paddingTop: '16px',
+  },
+});
+
 const Requests: React.FC = () => {
   const [request, setRequest] = useState<Request>();
-  const { data, loading, error } = useQuery<{ requests: Request[] }>(GET_REQUESTS);
+  const { data, loading } = useQuery<{ requests: Request[] }>(GET_REQUESTS);
 
   return (
     <>
@@ -26,26 +46,19 @@ const Requests: React.FC = () => {
           title="My Requests"
           subtitle="A detailed list of all of your requests which have been made"
           rightElement={(
-            <Button
+            <ButtonStyled
               variant="contained"
               disabled={!data?.requests}
-              style={{
-                width: '250px',
-                height: '50px',
-              }}
               onClick={() => {
                 if (data?.requests) history.push(`/client/requests/${data.requests[0].id}`);
               }}
             >
               View Your Latest Request
-            </Button>
+            </ButtonStyled>
           )}
         />
       </div>
-      <div style={{
-        padding: '32px 24px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap',
-      }}
-      >
+      <WrapperStyled>
         {
           data?.requests.map((r) => (
             <CardRow
@@ -57,7 +70,7 @@ const Requests: React.FC = () => {
             />
           ))
         }
-      </div>
+      </WrapperStyled>
       <BackdropLoader open={loading} />
       <Drawer open={Boolean(request)} onBackdropClick={() => setRequest(undefined)}>
         {
