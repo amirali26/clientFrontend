@@ -13,7 +13,7 @@ import {
 import React from 'react';
 import { Enquiry as EnquiryType } from '../../../../models/enquiry';
 
-type Props = EnquiryType
+type Props = EnquiryType & { requestNumber: number }
 
 export const Enquiry: React.FC<Props> = ({
   officeAppointment,
@@ -24,6 +24,7 @@ export const Enquiry: React.FC<Props> = ({
   estimatedPrice,
   user,
   account,
+  enquiryNumber, requestNumber,
 }) => (
   <form className="flex spaceBetween column" style={{ height: '100%' }}>
     <div
@@ -105,6 +106,29 @@ export const Enquiry: React.FC<Props> = ({
       </Box>
     </a>
     <div className="fullWidth  marginBottom marginTop">
+      <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
+        <Chip label="Enquiry Details" color="primary" />
+      </Divider>
+      <div
+        style={{
+          display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: '8px',
+        }}
+        className="marginTop marginBottom"
+      >
+        <Typography>
+          Enquiry Number:
+          <b>
+            {`  #EN${(`000000${enquiryNumber}`).slice(-4)}`}
+          </b>
+        </Typography>
+        <Typography>
+          Case Number:
+          <b>
+            {`  #CA${(`000000${requestNumber}`).slice(-4)}`}
+          </b>
+        </Typography>
+      </div>
+
       <Divider sx={{ '&::before, ::after': { position: 'static' } }}>
         <Chip label="Solicitor's Message" color="primary" />
       </Divider>

@@ -11,6 +11,7 @@ query GetEnquiries {
         phoneAppointment,
         videoCallAppointment,
         createdAt,
+        enquiryNumber,
         status,
         user {
             name,
@@ -22,6 +23,7 @@ query GetEnquiries {
           name,
           phoneNumber,
           email,
+          requestNumber,
           description,
           topic {
             name

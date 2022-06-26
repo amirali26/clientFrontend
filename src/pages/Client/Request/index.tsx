@@ -36,7 +36,7 @@ const ButtonStyled = styled(Button)`
 const Request: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [open, setOpen] = useState<boolean>(false);
-  const [enquiry, setEnquiry] = useState<Enquiry>();
+  const [enquiry, setEnquiry] = useState<Enquiry & { requestNumber: number }>();
   const { data, loading } = useQuery<{ request: RequestDto[] }>(GET_REQUEST, {
     variables: {
       id,
@@ -78,7 +78,11 @@ const Request: React.FC = () => {
             <CardRow
               key={e.id}
               {...e}
-              handleClick={() => setEnquiry(e)}
+              handleClick={() => setEnquiry({
+                ...e,
+                requestNumber:
+                  data?.request[0].requestNumber,
+              })}
             />
           ))
         }

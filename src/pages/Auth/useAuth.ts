@@ -74,6 +74,24 @@ const useAuth = () => {
     }
   };
 
+  const resendConfirmationCode = async () => {
+    try {
+      setLoading(true);
+
+      if (!user) throw Error('Unable to get logged in user session');
+
+      user.resendConfirmationCode((err, response) => {
+        if (err) throw Error(err.message);
+        sb.trigger(`Code resent to ${response.CodeDeliveryDetails.Destination}`, 'info');
+      });
+    } catch (e: any) {
+      sb.trigger(e.message || 'There was an issue');
+      history.push('/auth/login');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return {
     loading,
     signIn,
@@ -81,6 +99,7 @@ const useAuth = () => {
     isLoggedIn,
     handleLogout,
     shouldRedirectToDashboard,
+    resendConfirmationCode,
   };
 };
 

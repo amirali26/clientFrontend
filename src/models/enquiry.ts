@@ -21,6 +21,7 @@ export type Enquiry = {
     phoneAppointment: boolean,
     videoCallAppointment: boolean,
     createdAt: string,
+    enquiryNumber: number,
     user: User,
     account: Account,
     request: Request,

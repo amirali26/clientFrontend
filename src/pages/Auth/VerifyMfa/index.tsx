@@ -50,7 +50,7 @@ const VerifyMfa: React.FC = () => {
   const styles = useStyles();
   const location = useLocation<IRouteState>();
   const {
-    loading, verifyMfa,
+    loading, verifyMfa, resendConfirmationCode,
   } = useAuth();
   const formik = useFormik({
     initialValues,
@@ -95,8 +95,11 @@ const VerifyMfa: React.FC = () => {
           <button
             type="button"
             className="underline red borderNone font"
-            style={{ backgroundColor: 'transparent' }}
-          // onClick={location.state?.verify ? resendSignUpEmail : resendConfirmationCode}
+            style={{
+              cursor: 'pointer',
+              backgroundColor: 'transparent',
+            }}
+            onClick={resendConfirmationCode}
           >
             Resend a new code
           </button>

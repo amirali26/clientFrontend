@@ -21,6 +21,7 @@ query GetRequest($id: String!) {
   request(requestId: $id) {
     id,
     description,
+    requestNumber,
     topic {
       name
     }
@@ -33,6 +34,7 @@ query GetRequest($id: String!) {
       officeAppointment,
       phoneAppointment,
       videoCallAppointment,
+      enquiryNumber,
       createdAt,
       user {
         name,

@@ -8,6 +8,7 @@ export type Request = {
     description: string,
     topic: Topic,
     createdDate: string,
+    requestNumber: number,
     enquiries: Enquiry[]
 }
 
