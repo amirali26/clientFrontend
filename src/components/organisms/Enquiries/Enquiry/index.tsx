@@ -116,15 +116,15 @@ export const Enquiry: React.FC<Props> = ({
         className="marginTop marginBottom"
       >
         <Typography>
-          Enquiry Number:
+          Solicitor Response Number:
           <b>
-            {`  #EN${(`000000${enquiryNumber}`).slice(-4)}`}
+            {`  #SN${(`000000${enquiryNumber}`).slice(-4)}`}
           </b>
         </Typography>
         <Typography>
-          Case Number:
+          Enquiry Number:
           <b>
-            {`  #CA${(`000000${requestNumber}`).slice(-4)}`}
+            {`  #EN${(`000000${requestNumber}`).slice(-4)}`}
           </b>
         </Typography>
       </div>
