@@ -25,7 +25,6 @@ const useAuth = () => {
       setLoading(false);
     }
   };
-
   const verifyMfa = async (code: string) => {
     try {
       setLoading(true);
@@ -84,8 +83,8 @@ const useAuth = () => {
         if (err) throw Error(err.message);
         sb.trigger(`Code resent to ${response.CodeDeliveryDetails.Destination}`, 'info');
       });
-    } catch (e: any) {
-      sb.trigger(e.message || 'There was an issue');
+    } catch {
+      sb.trigger('There was an issue');
       history.push('/auth/login');
     } finally {
       setLoading(false);
